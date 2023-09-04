@@ -1,5 +1,5 @@
 # IoT svadkoc
 
-Repository of ROBOT (500858737)
+Repository of Callum Svadkovski
 
 This is my first commit
