@@ -1,3 +1,3 @@
 # Embedded code
 
-This is not a place to put your code, but to describe the code that you have written. You can describe the code in a general way, but also go into detail on specific parts of the code. You can also refer to the code in your repository. So just add a link to the code in your repository.
+During my first encounter with the Wemos D1 I was able to connect the LM35 Temperature sensor so i can read out the current temperature. To Achieve this i needed to read the raw analog voltage from the sensor. Next the raw voltage had to be converted to millivolts so that a represantable temperature value could be calculated. https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-1/individual-project/iot-svadkoc/-/blob/8bd7aae81da8f2acf82b724e639a5dfc17b77f98/embedded/wemos-temperature/Temperature_sketch.ino
