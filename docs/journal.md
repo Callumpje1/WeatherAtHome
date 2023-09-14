@@ -1,5 +1,2 @@
 # Learning journal
-
-Your learning journal can be seen as a diary of your learning process. It is a place where you can reflect on your learning, and where you can keep track of your progress. It is also a place where you can keep track of your questions, and where you can write down your answers to those questions.
-
-So for example when you receive feedback on your project, you can write down the feedback and your reflection on it in your learning journal. You can also write down what you have learned from the feedback, and how you will apply it in your project.
+During the first week of the Minor i had some issues with coming to all the classes due to work. I wasn't able to do as much as i had wanted to do and this meant i got a below average for my very first performance review, not a good start. In the upcoming weeks i have sorted the situation with work and am going to make sure to do get back up to speed on the minor
