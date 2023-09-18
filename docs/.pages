@@ -2,6 +2,7 @@ nav:
     - 🏚️ Home: index.md
     - 📦 System Architecture: system_architecture
     - ♟️ Learning journal: journal
+    - Planning : planning
     - 🧰 Embedded:
       - Requirements: embedded/requirements
       - Technical documentation: embedded/technical_documentation
