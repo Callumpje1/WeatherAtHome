@@ -1,5 +1,5 @@
 // Initializes/defines the output pin of the LM35 temperature sensor
-int outputpin = 0;
+int outputpin = 5;
 
 // This sets the ground pin to LOW and the input voltage pin to high
 void setup() {
