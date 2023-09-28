@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mariadb:3306
--- Generation Time: Sep 28, 2023 at 11:08 AM
+-- Generation Time: Sep 28, 2023 at 01:07 PM
 -- Server version: 11.1.2-MariaDB-1:11.1.2+maria~ubu2204
 -- PHP Version: 8.2.8
 
@@ -32,8 +32,21 @@ CREATE TABLE `weather` (
   `temperature` int(11) NOT NULL,
   `humidity` int(11) NOT NULL,
   `windspeed` int(11) NOT NULL,
-  `time` date NOT NULL DEFAULT current_timestamp()
+  `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `weather`
+--
+
+INSERT INTO `weather` (`weatherId`, `temperature`, `humidity`, `windspeed`, `date`) VALUES
+(1, 23, 40, 20, '2023-09-28'),
+(2, 21, 40, 20, '2023-09-28'),
+(3, 21, 40, 20, '2023-09-28'),
+(4, 21, 40, 20, '2023-09-28'),
+(5, 21, 40, 20, '2023-09-28'),
+(6, 21, 40, 20, '2023-09-28'),
+(7, 21, 40, 20, '2023-09-28');
 
 --
 -- Indexes for dumped tables
@@ -53,7 +66,7 @@ ALTER TABLE `weather`
 -- AUTO_INCREMENT for table `weather`
 --
 ALTER TABLE `weather`
-  MODIFY `weatherId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `weatherId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
