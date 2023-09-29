@@ -1,15 +1,15 @@
 <?php
 
-$dbConnection = new mysqli("mariadb", "root", "7YKyE8R2AhKzswfN", "forcecast")
+$conn = new mysqli("mariadb", "root", "7YKyE8R2AhKzswfN", "forcecast")
     or die('Could not connect to the database server' . mysqli_connect_error());
 
-if ($dbConnection->connect_error) {
-    die("Connection failed: " . $dbConnection->connect_error);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 $sql = 'SELECT * FROM weather';
 
-$result = $dbConnection->query($sql);
+$result = $conn->query($sql);
 
 $data = array();
 
@@ -21,6 +21,6 @@ if ($result->num_rows > 0) {
     echo ("0 results");
 }
 
-$dbConnection->close();
+$conn->close();
 
 echo json_encode($data);
