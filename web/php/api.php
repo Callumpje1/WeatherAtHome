@@ -9,16 +9,19 @@ if ($conn->connect_error) {
 
 $temperature = $_GET['temperature'];
 
-$obj = json_decode($temperature, true);
+$temp = json_decode($temperature, true);
 
-$temp = $obj['temperature'];
+echo ("json decode:" + $temp);
 
-echo 'Temperature: ' . $temp;
+echo ("get temperature data:" + $temperature);
 
-// Insert data into your database
-$insertQuery = $conn->query("INSERT INTO `weather` (`temperature`) VALUES ('" . $temperature . "')");
 
-// Return if the insert was successful or not
+echo $json['temperature'];
+
+// Insert data into database
+$insertQuery = $conn->query("INSERT INTO `weather` (`temperature`) VALUES ('" . $temp . "')");
+
+// Return if the insert was successful or return error message
 if ($insertQuery === TRUE) {
   echo json_encode(array("success" => true));
 } else {

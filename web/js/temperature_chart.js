@@ -1,17 +1,32 @@
 const ctx = document.getElementById('temperature-chart');
 
+function extractDayLabels(data) {
+    const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    return data.map(item => {
+        const dateStr = new Date(item.date);
+        const dayOfWeek = dateStr.getDay();
+        return daysOfWeek[dayOfWeek];
+    });
+}
+
+function extractAverageTemperatures(data) {
+    return data.map(item => item.averageTemperature);
+}
+
 window.addEventListener('load', function () {
-    fetch('/php/api.php')
-        //.then(response => response.json())
+    fetch('/php/temperature_get.php')
+        .then(response => response.json())
         .then(data => {
-            console.log(data)
+            const dayLabels = extractDayLabels(data);
+            const averageTemperatures = extractAverageTemperatures(data);
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                    labels: dayLabels,
                     datasets: [{
                         label: 'Temperature',
-                        data: 1,
+                        lineTension: 0.3,
+                        data: averageTemperatures,
                         borderColor: "#F93023",
                         backgroundColor: "#F93023",
                     }]

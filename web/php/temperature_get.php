@@ -7,10 +7,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = 'SELECT * FROM weather';
+//get average temperature for a week
+$sql = 'SELECT date, ROUND(AVG(temperature)) as averageTemperature
+FROM weather
+GROUP BY date LIMIT 7';
 
 $result = $conn->query($sql);
-
 $data = array();
 
 if ($result->num_rows > 0) {
