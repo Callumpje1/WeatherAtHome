@@ -17,10 +17,7 @@ The goal of the product is to give everyone who loves the Amsterdam canal houses
 
 In the below image you will see the requirements that i have set up for the physical design. The requirements contain some that are specific for the user that will use the product and some that are specific to the manufacturer of the product
 
-
-![Requirements Physical Design](<../assets/Requirements_Physical_1.png>)
-
-![Requirements Physical Design](../assets/Requirements_Physical_2.png)
+![Requirements Board Physical Design](../assets/Requirements_phyisical.png)
 
 # Sketches
 
