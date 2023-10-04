@@ -31,7 +31,6 @@ CREATE TABLE `weather` (
   `weatherId` int(11) NOT NULL,
   `temperature` int(11) NOT NULL,
   `humidity` int(11) NOT NULL,
-  `windspeed` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,14 +38,15 @@ CREATE TABLE `weather` (
 -- Dumping data for table `weather`
 --
 
-INSERT INTO `weather` (`weatherId`, `temperature`, `humidity`, `windspeed`, `date`) VALUES
-(1, 23, 40, 20, '2023-09-28'),
-(2, 21, 40, 20, '2023-09-28'),
-(3, 21, 40, 20, '2023-09-28'),
-(4, 21, 40, 20, '2023-09-28'),
-(5, 21, 40, 20, '2023-09-28'),
-(6, 21, 40, 20, '2023-09-28'),
-(7, 21, 40, 20, '2023-09-28');
+INSERT INTO `weather` (`temperature`, `humidity`) VALUES
+(23, 45),
+(21, 50),
+(19, 40),
+(17, 40),
+(20, 30),
+(18, 35),
+(22, 20),
+(24, 40)
 
 --
 -- Indexes for dumped tables
