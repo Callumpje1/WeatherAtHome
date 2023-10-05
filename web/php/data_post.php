@@ -11,7 +11,6 @@ if ($conn->connect_error) {
 $data = json_decode(file_get_contents('php://input'));
 
 $temperature = $data->temperature;
-
 $humidity = $data->humidity;
 
 // Insert data into database using prepared statement
