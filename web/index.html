@@ -41,14 +41,14 @@
         <div class="col-6">
           <div class="card bg-transparent bg-gradient text-white">
             <div class="card-body">
-              <h5 class="card-title" id="homeTemperature">19&deg;C</h5>
+              <h5 class="card-title" id="homeTemperature"></h5>
             </div>
           </div>
         </div>
         <div class="col-6">
           <div class="card bg-transparent bg-gradient text-white">
             <div class="card-body">
-              <h5 class="card-title" id="homeHumidity">34%</h5>
+              <h5 class="card-title" id="homeHumidity"></h5>
             </div>
           </div>
         </div>
@@ -77,34 +77,19 @@
   <main>
     <!--Content Starts-->
     <div class="container" style="margin-left: 310px">
-      <div class="row">
-        <div class="col-10 mt-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <canvas id="temperature-chart" style="min-width:100%; max-height:300px; margin-top: 10px;">
-              </canvas>
-              <div class="card-img-overlay">
-                <h5 class="card-title">
-                  Temperature History
-                </h5>
-              </div>
-            </div>
+      <div class="col-4">
+        <div class="input-group">
+          <input type="text" class="form-control mt-3 rounded shadow-sm" placeholder="Add Location">
+          <div class="input-group-append mt-3 shadow-sm" style="margin-left: 10px !important;">
+            <button class="btn btn-success" type="button">
+              <i class="bi bi-plus-lg"></i>
+            </button>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-10 mt-5">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <canvas id="humidity-chart" style="min-width:100%; max-height:300px; margin-top: 10px;">
-              </canvas>
-              <div class="card-img-overlay">
-                <h5 class="card-title">
-                  Humidity History
-                </h5>
-              </div>
-            </div>
-          </div>
+        <div class="container mt-3" id="weatherCardContainer">
+          <!-- Cards will be added here -->
         </div>
       </div>
     </div>
@@ -113,7 +98,8 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/js/temperature_chart.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/history.js"></script>
 
 
 </html>
