@@ -8,11 +8,12 @@ if ($conn->connect_error) {
 }
 
 //get average temperature for a week
-$sql = 'SELECT date, ROUND(AVG(temperature)) as averageTemperature
+$sql = 'SELECT date, ROUND(AVG(humidity)) as averageHumidity
 FROM weather
 GROUP BY date LIMIT 7';
 
 $result = $conn->query($sql);
+
 $data = array();
 
 if ($result->num_rows > 0) {

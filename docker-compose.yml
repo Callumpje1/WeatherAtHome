@@ -9,7 +9,7 @@ services:
       - './docker/dashboard:/var/www/dashboard'
     depends_on:
       - mariadb
-  
+
   nginx:
     image: nginx:latest
     container_name: iot-nginx
@@ -27,7 +27,7 @@ services:
       - tunnel:tunnel
     depends_on:
       - php
-  
+
   mariadb:
     image: mariadb:latest
     container_name: iot-mariadb
@@ -55,6 +55,7 @@ services:
       context: ./docker/images/tunnel
     container_name: iot-tunnel
     environment:
+      - "WEBSERVER_PORT=${WEBSERVER_PORT}"
       - "TUNNEL_SUBDOMAIN=${HVA_USERNAME}"
     depends_on:
       - nginx
