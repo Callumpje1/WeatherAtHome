@@ -1,5 +1,7 @@
 const addButton = document.getElementById('addButton');
 
+fetchAllLocations();
+
 // Function to fetch weather data from the API
 async function fetchWeatherData(location) {
     try {
@@ -14,6 +16,36 @@ async function fetchWeatherData(location) {
         return null;
     }
 }
+// Keep track of added locations
+const addedLocations = new Set();
+
+// Function to fetch weather data from the API
+async function fetchAllLocations() {
+    const weatherCards = document.getElementById('weather-cards'); // Get the container for weather cards
+
+    fetch('/php/get_location.php')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(element => {
+                const { name, temperature, humidity, observation_time, conditions, precipitation } = element;
+
+                if (!addedLocations.has(name)) {
+                    // Create a weather card for each location retrieved from the database
+                    const card = createWeatherCard(name, temperature, humidity, observation_time, conditions, precipitation);
+
+                    // Add the weather card to the frontend
+                    weatherCards.appendChild(card);
+
+                    // Add the location to the set to mark it as added
+                    addedLocations.add(name);
+                }
+            });
+        })
+}
+
+// Rest of your code (addButton event listener, fetchWeatherData, addWeatherCard, etc.)
+
+
 
 // Function to add a weather card to the frontend and local storage
 function addWeatherCard(location, temperature, humidity, observation_time, weatherDesc, precipMM) {
@@ -39,7 +71,6 @@ function calculateBackgroundGradient(temperature) {
         return 'bg-dark bg-gradient bg-opacity-25'; // Very Hot (above 40°C)
     }
 }
-
 
 // Function to create a weather card HTML element
 function createWeatherCard(location, temperature, humidity, observation_time, weatherDesc, precipMM) {
@@ -82,10 +113,12 @@ function createWeatherCard(location, temperature, humidity, observation_time, we
 
 addButton.addEventListener('click', async () => {
     const locationInput = document.getElementById('locationValue');
+    const location = locationInput.value.trim().toLowerCase();
 
-    const location = locationInput.value.trim();
-
-    if (location) {
+    // Check if the location is already in the addedLocations Set
+    if (addedLocations.has(location)) {
+        alert("Location already exists.");
+    } else {
         const weatherData = await fetchWeatherData(location);
 
         const data = {
@@ -104,7 +137,7 @@ addButton.addEventListener('click', async () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
-            })
+            });
             addWeatherCard(
                 location,
                 weatherData.data.FeelsLikeC,
@@ -112,12 +145,15 @@ addButton.addEventListener('click', async () => {
                 weatherData.data.observation_time,
                 weatherData.data.weatherDesc[0].value,
                 weatherData.data.precipMM
-            )
+            );
             locationInput.value = ''; // Clear the input field
-        }
-        else {
-            console.log("No weather data found for" + location)
+
+            // Add the location to the set to mark it as added
+            addedLocations.add(location);
+        } else {
+            console.log("No weather data found for " + location);
         }
     }
 });
+
 

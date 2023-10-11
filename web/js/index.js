@@ -22,7 +22,7 @@ function extractAverageHumidity(data) {
 
 function plotHistoricTemperatureChart() {
     window.addEventListener('load', function () {
-        fetch('/php/temperature_get_average.php')
+        fetch('/php/get_average_climate.php')
             .then(response => response.json())
             .then(data => {
                 homeTemp.innerHTML = data[0].averageTemperature + "*C"
@@ -56,7 +56,7 @@ function plotHistoricTemperatureChart() {
 
 function plotHistoricHumidityChart() {
     window.addEventListener('load', function () {
-        fetch('/php/humidity_get_average.php')
+        fetch('/php/get_average_climate.php')
             .then(response => response.json())
             .then(data => {
                 homeHumidity.innerHTML = data[0].averageHumidity + "%"
@@ -88,39 +88,35 @@ function plotHistoricHumidityChart() {
     });
 }
 
+const maxTempRange = document.getElementById('maxTempRange');
+const maxTempValue = document.getElementById('maxTempValue');
 
-function sendTemperatureData() {
+maxTempRange.addEventListener("input", function () {
+    maxTempValue.textContent = maxTempRange.value;
+    console.log(maxTempRange.value)
+    fetch('/php/post_range.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "maxTemp": maxTempRange.value }),
+    })
+});
 
-    const maxTempRange = document.getElementById('maxTempRange');
-    const maxTempValue = document.getElementById('maxTempValue');
+const minTempRange = document.getElementById('minTempRange');
+const minTempValue = document.getElementById('minTempValue');
 
-    const minTempRange = document.getElementById('minTempRange');
-    const minTempValue = document.getElementById('minTempValue');
+minTempRange.addEventListener("input", function () {
+    minTempValue.textContent = minTempRange.value;
+    console.log(minTempRange.value)
+    fetch('/php/post_range.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "minTemp": minTempRange.value }),
+    })
+});
 
-    maxTempRange.addEventListener("input", function () {
-        maxTempValue.textContent = maxTempRange.value;
-        fetch('/php/temerature_post.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ "maxTemp": maxTempRange.value }),
-        })
-    });
-
-    minTempRange.addEventListener("input", function () {
-        minTempValue.textContent = minTempRange.value;
-        fetch('/php/temperature_post.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ "minTemp": minTempRange.value }),
-        })
-    });
-
-}
-
-sendTemperatureData();
 plotHistoricHumidityChart();
 plotHistoricTemperatureChart();

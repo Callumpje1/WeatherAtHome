@@ -13,8 +13,11 @@
     <!--Sidebar Start-->
     <div class="d-flex flex-column flex-shrink-0 p-3 col-3 text-white bg-dark"
       style="width: 280px; position: fixed; min-height: 100% !important;">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-4">Weather</span>
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none align-items-center">
+        <img src="/images/weather_at_home_logo_white.png" alt="Weather at home logo" style="display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;">
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
@@ -79,16 +82,16 @@
     <div class="container" style="margin-left: 310px;">
       <div class="col-4">
         <div class="input-group">
-          <input type="text" class="form-control mt-3 rounded shadow-sm" placeholder="Add Location">
+          <input type="text" class="form-control mt-3 rounded shadow-sm" placeholder="Add Location" id="locationValue">
           <div class="input-group-append mt-3 shadow-sm" style="margin-left: 10px !important;">
-            <button class="btn btn-success" type="button">
+            <button class="btn btn-success" type="button" id="addButton">
               <i class="bi bi-plus-lg"></i>
             </button>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="container mt-3" id="weatherCardContainer">
+        <div class="container mt-3" id="weather-cards">
           <!-- Cards will be added here -->
         </div>
       </div>
