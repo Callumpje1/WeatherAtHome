@@ -31,9 +31,11 @@ Below you will find the sketch i created to get an idea for how the product will
 
 ### The Device
 
-
+To create my desired design i will be using the BRM 6090 laser cutter which is available to us at the maker's lab. This machine has the possibility to cut and engrave materials with extreme precision. This machine keeps track of the material you are using and cuts accordingly, no need for measuring the distance of the laser to the material you are cutting. This makes it a lot easier to cut and engrave after eachother without changing the setup myself.
 
 ### The Material
+
+I have chosen to create the canal house with 5mm mdf wood. I have chosen this material because it has a premium feel to it and i want my product to resemble the canal houses which are very expensive in real life. Also the material is very smooth and easy to work with. In my final design i don't only want to cut using the laser cutter, i also want to engrave and perhaps paint the surface so it comes as close as possible to a real canal house. For all these applications this wood suits the best. Also this wood fits together well when a right KERF is used to cut, this way the house can be assembled without glue.
 
 ### Techniques
 
