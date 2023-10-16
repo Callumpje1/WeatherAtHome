@@ -5,7 +5,7 @@ nav:
     - 📆 Planning : planning
     - 🧰 Embedded:
       - Requirements: embedded/requirements
-      - Wiring Diagram & BOM: embedded/wiring_&_bom
+      - Wiring Diagram & BOM: embedded/technical_documentation
       - Code: embedded/code
     - 🌐 Web:
       - Technical documentation: web/technical_documentation
