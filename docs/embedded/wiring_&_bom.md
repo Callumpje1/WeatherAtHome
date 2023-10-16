@@ -1,12 +1,10 @@
 # Wiring Diagram
 
-Below you will find the Wiring diagram for the embedded device, created in Fritzing. This wiring diagram is a visual representation of the connections i have made within the system. It helps other technicians to understand and recreate the system that i have created. By using labels on any part that isn't labelled by itself we can make a very clear overview of the structure. Also we are able to test the connections withing the fritzing software which can be a handy way to find an issue before putting parts together physically.
+Below you will find the Wiring diagram for the embedded device, created in Fritzing.
 
 ![Fritzing Wiring Diagram](../assets/Fritzing_canal_house.png)
 
 # Bill of Materials (BOM)
-
-The Bill of Materials is a list of all the components used for creating the embedded device. It contains each components part number, manufacturer, description, quantity used, price (before and after VAT) and a URL to find the component. It is another method to give others a clear overview of the components that are used for creating the embedded device. In some cases i couldn't find the exact manufacturer and use Generic as the manufacturer.
 
 | Part number | Manufacturer | Description               | Quantity | Price (incl VAT) | Subtotal (incl VAT) | Example URL |
 |------------|--------------|---------------------------|----------|------------------|--------------------|------------|
