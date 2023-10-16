@@ -1,6 +1,5 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
-#include <WiFiClient.h>
 #include <DHT.h>
 #include <ArduinoJson.h>
 
@@ -9,8 +8,8 @@
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 
-const char *ssid = "iotroam";
-const char *password = "8iuZwH958F";
+const char *ssid = "RM";
+const char *password = "Bellum97!";
 
 // Your Domain name with URL path or IP address with path
 const char *serverName = "http://rnuqm-145-28-186-143.a.free.pinggy.online/php/data_post.php";
@@ -35,6 +34,8 @@ void setup()
   Serial.print("Connected to WiFi network with IP Address: ");
   Serial.println(WiFi.localIP());
 
+  dht.begin
+
   Serial.println("Timer set to 10 seconds (timerDelay variable), it will take 10 seconds before publishing the first reading.");
 }
 
@@ -49,7 +50,7 @@ void loop()
       WiFiClient client;
       HTTPClient http;
 
-      // Your Domain name with URL path or IP address with path
+      // Domain name with URL path
       http.begin(client, serverName);
 
       // Specify content-type header
@@ -64,8 +65,6 @@ void loop()
       String jsonString;
       
       serializeJson(doc, jsonString);
-
-      Serial.println(jsonString);
 
       http.POST(jsonString);
 
