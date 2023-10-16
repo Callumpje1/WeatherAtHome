@@ -37,10 +37,14 @@ To create my desired design i will be using the BRM 6090 laser cutter which is a
 
 I have chosen to create the canal house with 5mm mdf wood. I have chosen this material because it has a premium feel to it and i want my product to resemble the canal houses which are very expensive in real life. Also the material is very smooth and easy to work with. In my final design i don't only want to cut using the laser cutter, i also want to engrave and perhaps paint the surface so it comes as close as possible to a real canal house. For all these applications this wood suits the best. Also this wood fits together well when a right KERF is used to cut, this way the house can be assembled without glue.
 
-### Techniques
-
 ## Digital Design
 
-### Software
+To Design the canal house i decided to first draw a sketch so i could get an idea of how i would create it. The first sketch is displayed in Sketches in a previous paragraphs. After drawing the sketch i decided to create a first prototype with paper to see if my design would work. To create the first prototype i used the Inkscape, this software is easy to use and can save a design in many file types that are supported by the laser cutting software: Lasercut. After recreating my sketch in Inkscape i printed the design on a A4 paper and cut it out to see if the concept would work. The paper prototype seemed like it would work. Because of this i decided to go to the Makerslab and laser cut the design to see what it would look. When laser cutting the design i realised that there were a couple of issues with my initial design. The way i had decided to create the house was not going to make it possible to attach a roof easily, which is essential for my design to work with the embedded device's LED. I had also not calculated the KERF of the machine correctly which meant the parts didn't fit together properly.
 
-### Process
+![First design iteration](Insert image)
+
+When creating the second iteration of my design i knew that i had to come up with a better way to design the roof and that i had to apply the right amount of KERF to make the pieces fit together seamlessly without glue.
+So in my final iteration i created a different version of the roof by placing a inkscape node in the middle of my house and extending it to make a point that would resemble the roof, the roof has 2 finger slots to place the roof panels onto. I then measured the depth of the house to create the roofpanels with 2 slots on each side to connect to the slots in the house. By doing this i knew the roof would fit without too much effort.
+In this iteration i also decided to place the window higher in the house to spread all components and make it feel more like a real house. When i started laser cutting my design i needed a couple of tries to figure out what the kerf of the laser cutter was. After doing a couple of miniature iterations and changing the thickness of the KERF i came to the conclusion that i needed to use a 0.400mm width to make the pieces fit together seamlessly
+
+![Couple of iterations](Insert Image)
