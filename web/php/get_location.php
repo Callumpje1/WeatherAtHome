@@ -7,7 +7,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-//get average temperature for a week
 $sql = 'SELECT * FROM location';
 
 $result = $conn->query($sql);
