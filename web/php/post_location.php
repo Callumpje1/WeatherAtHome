@@ -16,26 +16,30 @@ $time = $jsonData->observation_time;
 $conditions = $jsonData->weatherDesc;
 $precipitation = $jsonData->precipMM;
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the location already exists
-    $checkQuery = $conn->prepare("SELECT COUNT(*) FROM `location` WHERE LOWER(`name`) = LOWER(?)");
+    $checkQuery = $conn->prepare("SELECT `locationId` FROM `location` WHERE LOWER(`name`) = LOWER(?)");
     $checkQuery->bind_param("s", $location);
     $checkQuery->execute();
-    $checkQuery->bind_result($count);
+    $checkQuery->bind_result($locationId);
     $checkQuery->fetch();
     $checkQuery->close();
 
-    if ($count == 0) {
-        // Location does not exist, so we can insert the data
+    if ($locationId) {
+        echo json_encode(array("success" => false, "error" => "$location already exists!", "locationId" => $locationId));
+    } else {
         $insertQuery = $conn->prepare("INSERT INTO `location` (`name`, `temperature`, `humidity`, `observation_time`, `conditions`, `precipitation`) VALUES (?, ?, ?, ?, ?, ?)");
         $insertQuery->bind_param("siissd", $location, $temperature, $humidity, $time, $conditions, $precipitation);
         $insertQuery->execute();
         $insertQuery->close();
-    } else {
-        return json_encode(array("success" => false, "error" => "$location already exists!"));
+
+        // Retrieve the assigned location ID
+        $lastInsertedId = $conn->insert_id;
+
+        echo json_encode(array("success" => true, "locationId" => $lastInsertedId));
     }
 }
+
 
 // Handle data deletion
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
