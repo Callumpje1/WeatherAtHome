@@ -3,6 +3,7 @@ const humidityChart = document.getElementById('humidity-chart');
 const homeTemp = document.getElementById('homeTemperature');
 const homeHumidity = document.getElementById('homeHumidity');
 
+// Extract day labels from array for chart
 function extractDayLabels(data) {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     return data.map(item => {
@@ -12,14 +13,17 @@ function extractDayLabels(data) {
     });
 }
 
+// Extract average temperature from php server
 function extractAverageTemperatures(data) {
     return data.map(item => item.averageTemperature);
 }
 
+// Extract average humidity from php server
 function extractAverageHumidity(data) {
     return data.map(item => item.averageHumidity);
 }
 
+// Plot chart with average temperature data and date labels
 function plotHistoricTemperatureChart() {
     window.addEventListener('load', function () {
         fetch('/php/get_average_climate.php')
@@ -54,6 +58,7 @@ function plotHistoricTemperatureChart() {
     });
 }
 
+// Plot chart with average humidity data and date labels
 function plotHistoricHumidityChart() {
     window.addEventListener('load', function () {
         fetch('/php/get_average_climate.php')
