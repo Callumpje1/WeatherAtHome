@@ -3,7 +3,6 @@
 
 
 Web application for displaying current climate data which is measured with a Wemos D1 Mini.
-Javascript and Bootstrap frontend, Php Backend and C++ for the embedded device.
 
 
 ## Features
@@ -14,6 +13,11 @@ Javascript and Bootstrap frontend, Php Backend and C++ for the embedded device.
 - Plot chart for historic weather data
 - Change temperature range via http
 
+## Tech Stack
+
+**Client:** C++ and Javascript
+
+**Server:** Php
 
 ## Authors
 
