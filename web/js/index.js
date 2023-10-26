@@ -2,7 +2,9 @@ const addButton = document.getElementById('addButton');
 
 fetchAllLocations();
 
-// Function to fetch weather data from the API
+const addedLocations = new Array();
+
+// Fetch weather data from the HvA Weather API
 async function fetchWeatherData(location) {
     try {
         const response = await fetch(`http://api.iot.hva-robots.nl/weather/${location}/compact`);
@@ -16,10 +18,8 @@ async function fetchWeatherData(location) {
         return null;
     }
 }
-// Keep track of added locations
-const addedLocations = new Array();
 
-// Function to fetch weather data from the API
+// Fetch weather data from the Php server and append card
 async function fetchAllLocations() {
     const weatherCards = document.getElementById('weather-cards'); // Get the container for weather cards
 
@@ -44,7 +44,7 @@ async function fetchAllLocations() {
 }
 
 
-// Function to add a weather card to the frontend
+// Add a weather card to the frontend
 function addWeatherCard(locationId, location, temperature, humidity, observation_time, weatherDesc, precipMM) {
     const weatherCards = document.getElementById('weather-cards');
 
@@ -53,7 +53,7 @@ function addWeatherCard(locationId, location, temperature, humidity, observation
     weatherCards.appendChild(card);
 }
 
-// Function to calculate background gradient class based on temperature
+// Calculate background gradient class based on temperature
 function addCardStyling(temperature) {
     if (temperature < 0) {
         return 'border-primary border-2'; // Very Cold (below 0°C)
@@ -70,6 +70,7 @@ function addCardStyling(temperature) {
     }
 }
 
+// Create html card with location data from php server
 function createWeatherCard(locationId, location, temperature, humidity, observation_time, weatherDesc, precipMM) {
     const backgroundColor = addCardStyling(temperature);
     // Create the card element
@@ -100,6 +101,7 @@ function createWeatherCard(locationId, location, temperature, humidity, observat
             </div>
           </div>
         `;
+    
     // Find the "Remove" button inside the card and attach a click event listener
     const removeButton = card.querySelector('.delete-button');
 
@@ -111,6 +113,7 @@ function createWeatherCard(locationId, location, temperature, humidity, observat
     return card;
 }
 
+// Remove weather card with given id from server and frontend
 function removeWeatherCard(location, locationId) {
     if (confirm(`Are you sure you want to remove ${location}?`)) {
         const deleteButton = document.querySelector(`.delete-button[data-id="${locationId}"]`);
@@ -141,6 +144,7 @@ function removeWeatherCard(location, locationId) {
     }
 }
 
+// Add location card to frontend with location data from server
 addButton.addEventListener('click', async () => {
     const locationInput = document.getElementById('locationValue');
 
