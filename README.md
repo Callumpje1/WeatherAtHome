@@ -2,23 +2,21 @@
 # Weather at Home
 
 
-
-A brief description of what this project does and who it's for
+Web application for displaying current climate data which is measured with a Wemos D1 Mini.
+Javascript and Bootstrap frontend, Php Backend and C++ for the embedded device.
 
 
 ## Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Display current temperature and Humidity
+- Add weather data for a given location
+- Remove weather data for given location
+- Plot chart for historic weather data
+- Change temperature range via http
 
 
 ## Authors
 
 - [@Callumpje1](https://www.github.com/Callumpje1)
-
-
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
 
