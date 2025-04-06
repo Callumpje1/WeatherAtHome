@@ -29,7 +29,7 @@ function plotHistoricTemperatureChart() {
         fetch('/php/get_average_climate.php')
             .then(response => response.json())
             .then(data => {
-                homeTemp.innerHTML = data[0].averageTemperature + "*C"
+                homeTemp.textContent = data[0].averageTemperature + "*C"
                 const dayLabels = extractDayLabels(data);
                 const averageTemperatures = extractAverageTemperatures(data);
                 new Chart(tempChart, {

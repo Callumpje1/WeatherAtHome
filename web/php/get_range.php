@@ -30,5 +30,5 @@ $response = file_get_contents($wemosEndpoint, false, $context);
 if ($response === false) {
     echo 'Error: Unable to send data to Wemos D1 Mini.';
 } else {
-    echo $response;
+    echo htmlspecialchars($response, ENT_QUOTES, 'UTF-8');
 }
